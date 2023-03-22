@@ -1,31 +1,45 @@
 //incluindo bibliotecas
 #include <stdio.h>
 
-void incrementa (int shaba) {
+/*
+se nao colocar o *, so vai receber o valor dentro da caixa (variavel)
+Vamos receber um endereço de memoria que aponta para um tipo inteiro
+(int* shaba)
+*/
+
+void incrementa (int* shaba) {
 
     printf("Antes de incrementar.\n");
-    printf("O contador vale %d\n", shaba);
+    //pra puxar o valor da caixa, colocar um * e entre parenteses
+    //senao imprime o endereço da memoria
+    printf("O contador vale %d\n", (*shaba));
+    //para imprimir o endereço de memoria, preciso tirar o &
+    //por que ja estou recebendo o end.
+    printf("O contador vale %d\n\n", shaba);
 
     printf("Depois de incrementar.\n");
-    printf("O contador vale %d\n", ++shaba);
-
-
+    printf("O contador vale %d\n", ++(*shaba));
+    printf("O contador vale %d\n\n", shaba);
 
 }
-
-
 
 int main() {
 
-    int contador = 10;
+    int shaba = 10;
 
     printf("Antes de incrementar.\n");
-    printf("O contador vale %d\n", contador);
+    printf("O contador vale %d\n", shaba);
+    printf("O contador vale %d\n\n", &shaba);
 
-    incrementa(contador);
+    /*incrementando o endereço de memoria
+    quando colocamos o &, eu levo o endereço da memoria*/
+    incrementa(&shaba);
 
     printf("Depois de incrementar.\n");
-    printf("O contador vale %d\n", contador);
+    printf("O contador vale %d\n", shaba);
+    printf("O contador vale %d\n\n", &shaba);
 
     return 0;
 }
+
+//
